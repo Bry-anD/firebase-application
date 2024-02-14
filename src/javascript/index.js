@@ -521,101 +521,6 @@ function createChart() {
         type: 'datetime',
     };
 
-    // var options = {
-    //     chart: {
-    //         height: 350,
-    //         type: "line",
-    //         stacked: false
-    //     },
-    //     dataLabels: {
-    //         enabled: false
-    //     },
-    //     colors: ["#FF1654", "#247BA0", "#000000"],
-    //     series: [
-    //         {
-    //             name: "HumSuelo",
-    //             data: humedadSuelo
-    //         },
-    //         {
-    //             name: "TempAire",
-    //             data: temperatura
-    //         },
-    //         {
-    //             name: "HumAire",
-    //             data: humedadAire
-    //         },
-    //     ],
-    //     stroke: {
-    //         width: [4, 4]
-    //     },
-    //     plotOptions: {
-    //         bar: {
-    //             columnWidth: "20%"
-    //         }
-    //     },
-    //     xaxis: xaxisData,
-    //     yaxis: [
-    //         {
-    //             seriesName: 'humAire',
-    //             min: '0',
-    //             max: '100',
-    //             axisTicks: {
-    //                 show: true
-    //             },
-    //             axisBorder: {
-    //                 show: true,
-    //                 color: "#FF1654"
-    //             },
-    //             labels: {
-    //                 style: {
-    //                     colors: "#FF1654"
-    //                 }
-    //             },
-    //             title: {
-    //                 text: "Humedad Suelo",
-    //                 style: {
-    //                     color: "#FF1654"
-    //                 }
-    //             }
-    //         },
-    //         {
-    //             seriesName: "TempAire",
-    //             opposite: true,
-    //             min: '-10',
-    //             max: '40',
-    //             axisTicks: {
-    //                 show: true
-    //             },
-    //             axisBorder: {
-    //                 show: true,
-    //                 color: "#247BA0"
-    //             },
-    //             labels: {
-    //                 style: {
-    //                     colors: "#247BA0"
-    //                 }
-    //             },
-    //             title: {
-    //                 text: "Temperatura",
-    //                 style: {
-    //                     color: "#247BA0"
-    //                 }
-    //             }
-    //         }
-    //     ],
-    //     tooltip: {
-    //         shared: false,
-    //         intersect: true,
-    //         x: {
-    //             show: false
-    //         }
-    //     },
-    //     legend: {
-    //         horizontalAlign: "left",
-    //         offsetX: 40
-    //     }
-    // };
-
     var options = {
         chart: {
             id: 'humedad',
@@ -799,29 +704,6 @@ function createChart() {
     observador.observe(humSuelo, observerOptions);
     observador.observe(humAire, observerOptions);
     observador.observe(tempAire, observerOptions);
-}
-
-
-function getTime() {
-    // Fecha y hora actuales en formato: 2023-08-09T17:22:20.248Z
-    let current_second = new Date();
-    console.log("current_second =", current_second.toISOString());
-
-    // Fecha actual en formato: 2023-08-09
-    // let current_date = current_second.toISOString().split('T')[0];
-    // console.log("current_date =", current_date);
-
-    // // Fecha y hora actuales en formato: 2023-08-09 17:22:20
-    let Start_time = current_second.toISOString().replace('T', ' ').split('.')[0];
-    // console.log("Start_time =", Start_time);
-
-    // // fecha y hora actual en milisegundos desde la medianoche del 1 de enero de 1970 (UTC) 
-    // let utc = Date.now()
-    // // convierte automáticamente a la fecha y hora local
-    // let date = new Date(utc)
-
-    // return date;
-    return Start_time;
 }
 
 let seccionActions = document.getElementById('actions');
