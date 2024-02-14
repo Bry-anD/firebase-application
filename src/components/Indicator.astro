@@ -1,0 +1,76 @@
+<!-- <h1>Registro</h1>
+<form>
+    <label>
+        Usuario:
+        <input type="text" name="username" required />
+    </label>
+    <label>
+        Correo electrónico:
+        <input type="email" name="email" required />
+    </label>
+    <label>
+        Contraseña:
+        <input type="password" name="password" required minlength="6" />
+    </label>
+    <button>Enviar</button>
+</form>
+
+<script>
+    window.addEventListener("DOMContentLoaded", (event) => {
+        document.querySelector("form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            // Aquí puedes agregar el código que quieras ejecutar cuando se envía el formulario
+            console.log("El formulario ha sido enviado");
+        });
+    });
+</script> -->
+<div
+    id="indicator-options"
+    style="display:none;"
+    class="flex flex-col flex-grow flex-nowrap"
+>
+<p class="text-lg font-semibold text-ellipsis py-4" >Click en Crear para agregar el Indicador Númerico</p>
+
+<form id="indicator-create-form" class="mx-auto">
+    <label for="i-reference">Referencia:</label>
+    <select id="i-reference" name="referencia" class="text-cyan-800" required>
+        <option value="humAire"> humAire </option>
+        <option value="humSuelo"> humSuelo  </option>
+        <option value="riego"> riego </option>
+        <option value="tempAire"> tempAire </option>
+    </select><br>
+    <label for="i-units">Units:</label>
+    <input type="text" id="i-units" name="units" class="form-control" required><br>
+    <label for="i-data-type">Data Type:</label>
+    <select id="i-data-type" name="dataType" class="text-cyan-800" required>
+        <option value="entero">Entero</option>
+        <option value="decimal1">Decimal (1 digito)</option>
+        <option value="decimal2">Decimal (2 digitos)</option>
+        <option value="decimal3">Decimal (3 digitos)</option>
+    </select><br><br>
+    <input type="submit" value="Crear" class="hover:text-white rounded font-medium text-sm px-6 py-2 hover:bg-blue-800 backdrop-blur-2xl bg-white/5 text-blue-800 border-[2px] transition-colors">
+</form>   
+</div>
+
+<style>   
+    .form-control {
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition:
+            border-color 0.15s ease-in-out,
+            box-shadow 0.15s ease-in-out;
+    }
+    .widget-table-cells {
+        padding: 5px;
+    }
+</style>

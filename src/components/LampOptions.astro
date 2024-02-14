@@ -1,0 +1,60 @@
+
+<div
+    id="lamp-options"
+    style="display:none;"
+    class="flex flex-col flex-grow flex-nowrap"
+>
+<p class="text-lg font-semibold text-ellipsis py-4" >Click en Crear para agregar la Lámpara</p>
+<form id="lamp-create-form" class="mx-auto">
+    <label for="l-name">Nombre:</label>
+    <input type="text" id="l-name" name="name" class="form-control" required><br>
+    <label for="l-condition">Condición: If</label>
+    <select id="l-reference" name="referencia" class="text-cyan-800" required>
+        <option value="">Referencia</option>
+        <option value="humAire"> humAire </option>
+        <option value="humSuelo"> humSuelo  </option>
+        <option value="riego"> riego </option>
+        <option value="tempAire"> tempAire </option>
+    </select>
+    <select id="l-operation" name="condition" class="text-cyan-800" required>
+        <option value="">Operación</option>
+        <option value=">"> mayor que &gt; </option>
+        <option value="<"> menor que &lt; </option>
+        <option value="=="> igual == </option>
+        <option value="!="> diferente != </option>
+    </select><br>
+    <input type="number" id="l-target" name="objetivo" class="form-control" required><br>
+    <label for="l-color">Color:</label>
+    <input type="color" id="l-color" name="color" value="#FF0000" required><br><br>
+    <input type="submit" value="Crear" class="hover:text-white rounded font-medium text-sm px-6 py-2 hover:bg-blue-800 backdrop-blur-2xl bg-white/5 text-blue-800 border-[2px] transition-colors">
+</form>    
+</div>
+<script>
+
+  
+    
+</script>
+<style>
+   
+    .form-control {
+        /* display: block; */
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition:
+            border-color 0.15s ease-in-out,
+            box-shadow 0.15s ease-in-out;
+    }
+    .widget-table-cells {
+        padding: 5px;
+    }
+</style>

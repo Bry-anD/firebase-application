@@ -1,0 +1,107 @@
+---
+interface Props {
+    nameProyect: string;
+}
+
+const { nameProyect } = Astro.props;
+---
+
+<section
+    id="ActionsSection"
+    class="landing-section h-screen w-screen text-center overflow-hidden relative"
+    data-header-color="black"
+>
+    <div class="z-30 relative h-full flex flex-col">
+        <header>
+            <h2 class="text-black pt-28 pb-10 text-4xl font-medium">
+                Panel de Acciones 👨‍💻 <strong>{nameProyect}</strong>
+            </h2>
+        </header>
+        <div class="flex flex-col flex-grow text-center">
+            <h3 class="card-header text-xl font-medium text-center px-10 py-2">
+                Acciones
+            </h3>
+            <div class="flex flex-grow bg-white py-3" id="div-actions"></div>
+        </div>
+        <div class="gap-x-4 flex justify-center"></div>
+        <footer class="flex justify-end flex-col pb-10">
+            <!-- <div class="gap-x-4 flex mx-auto">
+                <a
+                    class="text-white border-[3px] rounded font-medium text-xs px-12 py-2 border-white bg-white/5 backdrop-blur-3xl hover:bg-white hover:text-black transition-colors"
+                    href="#"
+                >
+                    Actions del proyecto</a
+                >
+                <a
+                    class="text-black border-black border-[3px] rounded font-medium text-xs px-12 py-2 bg-white/5 backdrop-blur-3xl hover:bg-black hover:text-white transition-colors"
+                    href="#"
+                >
+                    Control del proyecto</a
+                >
+            </div> -->
+        </footer>
+    </div>
+
+    <div class="absolute top-0 bottom-0 h-full w-full z-10">
+        <!-- <video
+            class="object-center object-cover h-full"
+            autoplay
+            loop
+            muted
+            src="/Homepage-Model-Y-Desktop-NA.mp4"></video> -->
+    </div>
+    <!-- <script src="../javascript/actions.js"></script> -->
+</section>
+
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-contenido {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 40px;
+        border: 1px solid #888;
+        width: 60%;
+        border-radius: 1rem;
+    }
+
+    .cerrar {
+        color: #aaa;
+        float: right;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .cerrar:hover,
+    .cerrar:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .actions-control {
+        display: none;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition:
+            border-color 0.15s ease-in-out,
+            box-shadow 0.15s ease-in-out;
+    }
+</style>

@@ -1,0 +1,199 @@
+---
+import Card from "./Card.astro";
+interface Props {
+    nameProyect: string;
+}
+
+const { nameProyect } = Astro.props;
+---
+
+<article id="accountModal" class="modal">
+    <div class="modal-contenido text-black">
+        <header class="justify-center mx-auto">
+            <span class="cerrar" id="closeModal">&times;</span>
+            <h3 class="text-2xl">{`Sistema inteligente ${nameProyect}`}</h3>
+        </header>
+
+        <main>
+            <div
+            id="auth-sign"
+                class="flex flex-col px-4 py-4 [&>button]:py-4 [&>button]:border-[3px] [&>button]:rounded-lg [&>button]:font-medium [&>button]:px-4 [&>button]:backdrop-blur-3xl [&>button]:transition-colors"
+            >               
+                <h2>Firebase Email &amp; Password Authentication</h2>
+                <p class="text-xs text-gray-400">
+                    Enter an email and password below and either sign in to an
+                    existing account or sign up
+                </p>
+
+                <input
+                    class="form-control my-1 py-3 px-6"
+                    style="display: inline; width: auto"
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                />
+
+                <input
+                    class="form-control my-1 py-3 px-6"
+                    style="display: inline; width: auto"
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                />
+                        
+                        
+                <button
+                style=" display: none"
+                disabled
+                id="quickstart-sign-in-google"
+                class="text-white opacity-60 bg-red-900 hover:opacity-100"
+                >
+                Sign in with Google
+                </button>
+                <button
+                style=" display: none"
+                id="quickstart-sign-up"
+                name="signup"
+                class="text-gray-800 opacity-70 bg-slate-400 hover:opacity-100"
+                >
+                Sign Up
+                </button>
+            
+            </div>
+            <button
+            disabled
+            id="quickstart-sign-in"
+            name="signin"
+            class="text-white opacity-60 bg-[#3e6ae1] hover:opacity-100 w-full border-[3px] rounded-lg font-medium px-4 py-4 backdrop-blur-3xl transition-colors"
+            >
+            Sign In
+            </button>
+            <div
+                id="auth-user"
+                class="flex flex-row justify-center flex-nowrap [&>button]:py-4 [&>button]:border-[3px] [&>button]:rounded-lg [&>button]:font-medium [&>button]:px-4 [&>button]:backdrop-blur-3xl [&>button]:transition-colors"
+            >
+                <button
+                    disabled
+                    id="quickstart-verify-email"
+                    class="text-gray-800 opacity-70 bg-slate-400 hover:bg-black hover:text-white hover:opacity-100"
+                    name="verify-email"
+                >
+                    Send Email Verification
+                </button>
+                <button
+                    id="quickstart-password-reset"
+                    name="verify-email"
+                    class="text-gray-800 opacity-70 bg-slate-400 hover:bg-black hover:text-white hover:opacity-100"
+                >
+                    Send Password Reset Email
+                </button>
+                <div class="quickstart-user-details-container flex flex-col flex-grow flex-nowrap justify-start py-3">                   
+                    <span
+                        class="text-green-500"
+                        id="quickstart-sign-in-status">Unknown</span
+                    >
+                    <div>
+                        Email:
+                        <span id="user-email"></span>
+                    </div>
+                    <div>
+                        Uid:
+                        <span id="user-uid"></span>
+                    </div>
+                    <span id="user-photo"></span>                 
+                    <details>
+                        <summary>
+                            Firebase auth <code>currentUser</code> object value:
+                        </summary>
+                        <pre><code class="text-xs" id="quickstart-account-details">null</code></pre>
+                    </details>
+                    <!-- <details>
+                        <summary> Google OAuth Access Token:</summary>
+                        <pre><code id="quickstart-oauthtoken">null</code></pre>
+                    </details> -->
+                    
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+</article>
+<script>
+    
+    const accountModal = document.getElementById("accountModal");
+    const accountButton = document.getElementById("account");
+    const closeModalButton = document.getElementById("closeModal");
+
+    accountButton.addEventListener("click", function () {
+        accountModal.style.display = "block";
+    });
+
+    closeModalButton.addEventListener("click", function () {
+        accountModal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target === accountModal) {
+            accountModal.style.display = "none";
+        }
+    });
+</script>
+<script src="../javascript/auth"></script>
+<style>
+    .form-control {
+        display: block;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition:
+            border-color 0.15s ease-in-out,
+            box-shadow 0.15s ease-in-out;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-contenido {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 2px solid #888;
+        width: 40%;
+        border-radius: 0.75rem;
+    }
+
+    .cerrar {
+        color: #aaa;
+        float: right;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .cerrar:hover,
+    .cerrar:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>

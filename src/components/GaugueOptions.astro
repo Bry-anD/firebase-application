@@ -1,0 +1,144 @@
+<div
+    id="gaugeOptions"
+    style="display:none;"
+    class="flex flex-col flex-grow flex-nowrap"
+>
+<p class="text-lg font-semibold text-ellipsis py-4" >Click en Crear para agregar el Medidor</p>
+    <table
+        id="widget_params_config_"
+        style="padding-left: 10%;"
+        class="mx-auto"
+    >
+        <tbody>
+            <tr>
+                <td class="widget-table-cells"> Name</td>
+                <td colspan="1" class="widget-table-cells">
+                    <input
+                        required
+                        class="form-control"
+                        maxlength="20"
+                        placeholder="Enter Name for the widget "
+                        type="text"
+                        id="name_"
+                        name="name"
+                        value=""
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td class="widget-table-cells"> Source</td>
+                <td colspan="1" class="widget-table-cells">
+                    <label
+                        >Choose a source from this list: <input
+                            class="form-control"
+                            list="sources"
+                            name="mySource"
+                            id="source_"
+                            required
+                        /></label
+                    >
+                    <datalist id="sources">
+                        <option value="humAire"></option>
+                        <option value="humSuelo"></option>
+                        <option value="tempAire"></option>
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td class="widget-table-cells"> Min</td>
+                <td colspan="1" class="widget-table-cells">
+                    <input
+                        class="form-control"
+                        placeholder=" "
+                        type="number"
+                        step="any"
+                        id="min_"
+                        name="min"
+                        value="0"
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td class="widget-table-cells"> Max</td>
+                <td colspan="1" class="widget-table-cells">
+                    <input
+                        class="form-control"
+                        maxlength="80"
+                        placeholder="Should be greater than Min"
+                        type="number"
+                        id="max_"
+                        name="max"
+                        value="100"
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td class="widget-table-cells"> Units</td>
+                <td colspan="1" class="widget-table-cells">
+                    <input
+                        class="form-control"
+                        maxlength="80"
+                        placeholder="Enter Measurement Units "
+                        type="text"
+                        id="units_"
+                        name="units"
+                        value=""
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td class="widget-table-cells"> Tick Interval</td>
+                <td colspan="1" class="widget-table-cells">
+                    <input
+                        class="form-control"
+                        placeholder=" "
+                        type="number"
+                        step="any"
+                        oninput="validity.valid||(value=0)"
+                        min="0"
+                        id="tick_interval_"
+                        name="tick_interval"
+                        value="10"
+                    />
+                </td>
+            </tr>
+            <tr class="my-3">
+                <td>
+                    <p id="p_source" class="text-red-600"></p>
+                </td>
+                <td>
+                    <button
+                        type="button"
+                        id="gauge_widget_create"
+                        class="bg-green-500 text-gray-100 hover:bg-green-400 hover:text-white w-2/3 rounded-md py-3"
+                        >Crear</button
+                    >
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<style>
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.375rem;
+        transition:
+            border-color 0.15s ease-in-out,
+            box-shadow 0.15s ease-in-out;
+    }
+    .widget-table-cells {
+        padding: 5px;
+    }
+</style>

@@ -1,0 +1,36 @@
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="3px"
+	 viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+<g id="Outer_Border">
+	<circle id="XMLID_1_" cx="10" cy="10" r="10" style="fill: #C7C8CA"/>
+</g>
+<g id="Border_Inner_Shadow">
+</g>
+<g id="Lamp_Drop_Shadow" style="display:none">
+	<path id="XMLID_46_" style="display:inline;opacity:0.15;fill:#231F20;enable-background:new" d="M15,24.3c-5.2,0-9.4-4-9.5-9.1c0,0.1,0,0.1,0,0.2c0,5.1,4.3,9.3,9.5,9.3s9.5-4.2,9.5-9.3
+		c0-0.1,0-0.1,0-0.2C24.4,20.3,20.2,24.3,15,24.3z"/>
+</g>
+<g id="Lamp_Color" data-dojo-attach-point="colorNode" style="fill: #ffffff">
+	<ellipse id="lamp_color_3_" cx="10" cy="10" rx="9.5" ry="9.3"/>
+</g>
+<g id="lamp_outer_inner_shadow">
+		<radialGradient id="lamp_color_1_UniqueID" cx="9.3392" cy="9.1711" r="10.7556" gradientTransform="matrix(0.8833 0 0 0.8636 1.751 2.0795)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0.9" style="stop-color:#FFFFFF;stop-opacity:0"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.5"/>
+	</radialGradient>
+	<ellipse id="lamp_color_2_" cx="10" cy="10" rx="9.5" ry="9.3" style="fill:url(#lamp_color_1_UniqueID)"/>
+</g>
+<g id="Dark_Highlight_bottom">
+	<linearGradient id="highlight_2_UniqueID" gradientUnits="userSpaceOnUse" x1="10" y1="17.8678" x2="10" y2="7.9646">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.15"/>
+		<stop  offset="0.5" style="stop-color:#000000;stop-opacity:0"/>
+	</linearGradient>
+	<ellipse id="highlight_3_" cx="10" cy="10" rx="8.2" ry="8" style="fill:url(#highlight_2_UniqueID)"/>
+</g>
+<g id="Light_Highlight_top">
+	<linearGradient id="highlight_4_UniqueID" gradientUnits="userSpaceOnUse" x1="10.0208" y1="2.1581" x2="9.9946" y2="12.0613">
+		<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.8"/>
+		<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+	</linearGradient>
+	<ellipse id="highlight_1_" cx="10" cy="10" rx="8.2" ry="8" style="fill:url(#highlight_4_UniqueID)"/>
+</g>
+</svg>

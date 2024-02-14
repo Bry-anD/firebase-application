@@ -1,0 +1,54 @@
+---
+
+---
+
+<div id="widgetContent">
+    <h1 class="text-lg font-semibold text-ellipsis py-4" >Click en el widget para crearlo en el panel</h1>
+    <div
+        id="window_preview_gauge"
+        class="window-preview-container hover:bg-blue-800 hover:text-black transition-colors"
+        style="background-image: url(/assets/add_widget_gauge.svg)"
+    >
+        <div class="window-header">Gauge</div>
+    </div>
+
+    <div
+        id="window_preview_numeric"
+        class="window-preview-container hover:bg-blue-800 hover:text-black transition-colors"
+        style="background-image: url(/assets/add_numeric_display.svg)"
+    >
+        <div class="window-header"> Numeric Display</div>
+    </div>
+
+    <div
+        id="window_preview_lamp"
+        class="window-preview-container hover:bg-blue-800 hover:text-black transition-colors"
+        style="background-image: url(/assets/lamp.svg)"
+    >
+        <div class="window-header">Lamp Indicator</div>
+    </div>
+</div>
+
+<style>
+    .window-preview-container {
+        height: 160px;
+        width: 220px;
+        margin: 10px 15px 10px 15px;
+        border: 1px solid;
+        border-color: #1e40af;
+        cursor: pointer;
+        display: inline-block;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100px;
+        background-position-y: 55px;
+    }
+    .window-header {
+        padding: 7px;
+        border: 1px solid #1e40af;
+        background: #1e40af none top right no-repeat;
+        font-weight: bold;
+        color: #ffffff;
+    }
+</style>

@@ -1,0 +1,68 @@
+---
+import Logo from "./Logo.astro";
+import Register from "./Register.astro";
+
+interface Props {
+    nameProyect: string;
+}
+
+const { nameProyect } = Astro.props;
+---
+
+<header
+    id="landing-header"
+    class="py-3 px-10 flex flex-wrap items-center fixed top-0 w-full justify-between z-40 text-white"
+>
+    <div class="flex flex-grow basis-0 h-6 w-28">
+        <Logo />
+    </div>
+    <nav>
+        <ul
+            class="flex text-sm [&>li>a]:rounded [&>li>a]:transition-colors [&>li>a]:duration-400 [&>li>a]:font-medium [&>li>a]:text-current [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+        >
+            <li><a href="#PanelSection">Panel</a></li>
+            <li><a href="#ActionsSection">Actions</a></li>
+            <li><a href="#ControlSection">Control</a></li>
+        </ul>
+    </nav>
+    <nav class="flex flex-grow justify-end basis-0">
+        <ul
+            class="flex text-sm [&>li>a]:rounded [&>li>a]:transition-colors [&>li>a]:duration-400 [&>li>a]:font-medium [&>li>a]:text-current [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+        >
+            <li><a href="">Soporte</a></li>
+            <!-- <li><a href="">Configuracion</a></li> -->
+            <li><a id="account">Cuenta</a></li>
+        </ul>
+    </nav>
+    <Register nameProyect={nameProyect} />
+</header>
+
+<script>
+    const $header = document.querySelector("#landing-header") as HTMLElement;
+    const listItem = document.querySelectorAll("#landing-header li");
+
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.9,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const { isIntersecting } = entry;
+            if (isIntersecting) {
+                const color = entry.target.getAttribute("data-header-color");
+                $header.style.color = color;
+            }
+        });
+    }, observerOptions);
+
+    const $sections = document.querySelectorAll(".landing-section");
+    $sections.forEach((section) => observer.observe(section));
+</script>
+<style>
+    ul li a:hover {
+        background-color: darkgray; /* bg-gray-300 */
+        color: #1f2937; /* text-gray-800 */
+    }
+</style>

@@ -1,0 +1,120 @@
+---
+import Card from "./Card.astro"
+---
+<section
+    class="landing-section h-screen w-screen text-center overflow-hidden relative"
+    data-header-color="white"
+>
+
+<div class="z-30 relative h-full flex flex-col">
+    <header class="pt-40">
+        <h1 class="text-white text-3xl">Bienvenidos a</h1>
+        <h2 class="text-white text-2xl font-medium pb-4">Riego IoT</h2>
+        <h3 class="text-white text-xs font-medium"> Aplicación para la administración de un sistema de riego inteligente</h3>
+            <p class="text-white text-xs">
+                Para una introducción revisa los siguientes recursos en el<a href="https://utneduec-my.sharepoint.com/:f:/g/personal/brdavalosa_utn_edu_ec/EjrcVu8U3e9Kkv823-MWF78BOkghHHn4_vtOji7aB1egAg?e=gO2f8B"><code>enlace</code></a> del projecto.
+            </p>
+    </header>    
+    
+    <!-- <div >
+        <ul class="flex relative" role="list" class="link-card-grid">
+            <Card href="#" title="Documentación"
+            body="Informe del proyecto de la aplicación de administración de rigo inteligente." />
+            <Card href="#" title="Código"
+            body="Enlace al repositorio en github" />
+            <Card href="#" title="Diagramas de Flujo"
+            body="#" />
+            <Card href="#" title="Comentarios"
+            body="" />
+        </ul>
+    </div>
+     -->
+    <footer class="flex flex-grow flex-nowrap justify-end flex-col pb-10">
+        <div>
+            <a
+                class="text-white border-[3px] rounded font-medium text-xs px-12 py-2 border-white bg-white/5 backdrop-blur-3xl hover:bg-white hover:text-black transition-colors"
+                href="#PanelSection"
+            >
+                Continuar al proyecto</a
+            >
+        </div>
+    </footer>
+</div>
+
+    <div class="absolute top-0 bottom-0 h-full w-full z-10">
+        <video
+            class="object-center object-cover h-full w-full"
+            autoplay
+            loop
+            muted
+            src="/assets/Homepage-Model-Y-Desktop-NA.mp4"></video>
+    </div>
+    
+</section>
+
+
+<style>
+    main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+    .astro-a {
+        position: absolute;
+        top: -32px;
+        left: 50%;
+        transform: translatex(-50%);
+        width: 220px;
+        height: auto;
+        z-index: -1;
+    }
+
+    h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        /* margin-bottom: 1em; */
+    }
+
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+
+    .instructions {
+        margin-bottom: 2rem;
+        border: 1px solid rgba(var(--accent-light), 25%);
+        background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+
+    .instructions code {
+        font-size: 0.8em;
+        font-weight: bold;
+        background: rgba(var(--accent-light), 12%);
+        color: rgb(var(--accent-light));
+        border-radius: 4px;
+        padding: 0.3em 0.4em;
+    }
+
+    .instructions strong {
+        color: rgb(var(--accent-light));
+    }
+
+    .link-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+        gap: 2rem;
+        padding: 0;
+    }
+</style>

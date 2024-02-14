@@ -1,0 +1,197 @@
+---
+import GaugueOptions from "./GaugueOptions.astro";
+import WidgetContent from "./WidgetContent.astro";
+import LampOptions from "./LampOptions.astro";
+import Indicator from "./Indicator.astro";
+
+interface Props {
+    nameProyect: string;
+}
+
+const { nameProyect } = Astro.props;
+---
+
+<section
+    id="PanelSection"
+    class="landing-section h-screen w-screen text-center overflow-hidden relative bg-gray-100"
+    data-header-color="black"
+>
+    <div class="z-30 relative h-full flex flex-col">
+        <header>
+            <h2 class="text-black pt-20 text-4xl font-medium">
+                Panel de datos 👨‍💻 <strong id="proyect">{nameProyect}</strong>
+            </h2>
+        </header>
+        <h3 class="card-header text-xl font-medium text-center py-2">
+            Variables ambientales
+        </h3>
+        <div class="flex flex-col flex-grow pb-2 text-center">
+            <div class="flex flex-grow flex-row">
+                <div class="flex flex-grow flex-col mx-3">  
+                    <div class="flex flex-grow bg-white rounded-md py-2" id="div-data"></div>
+                        <div class="relative flex bg-white border-0 rounded-md px-2 " id="canvas-chart"></div>
+                        <div class="relative flex bg-white border-0 rounded-md pb-2 px-2 " id="canvas-chart-1"></div>
+                </div>              
+                <div class="flex flex-col m-3 gap-y-2">                
+                    <div class="relative flex flex-grow flex-row flex-wrap gap-x-2 min-w-0 break-words bg-white border-0 rounded-md py-2 px-2" id="canvas-gauge"></div>
+                    <div class="relative flex flex-row gap-x-2 min-w-0 break-words bg-white border-0 rounded-md py-2 px-2 items-center" id="canvas-lamp"></div>
+                    <div class="relative flex flex-row gap-x-2 min-w-0 break-words bg-white border-0 rounded-md py-2 px-2 items-center" id="canvas-indicator"></div>
+                </div>
+            </div>
+        </div>
+
+        <article id="widget-modal" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar" id="cerrarModal">&times;</span>
+                <WidgetContent />
+                <GaugueOptions />
+                <LampOptions/>   
+                <Indicator/> 
+                
+            </div>
+        </article>
+        <div class="gap-x-4 flex justify-center">
+            <a
+                id="show-widget"
+                class="text-black border-[2px] rounded font-medium text-base px-12 py-2 border-blue-800 bg-white/5 backdrop-blur-2xl hover:bg-blue-800 hover:text-white transition-colors"
+                href="#"
+            >
+                Agregar Widgets</a
+            >
+            <a
+                id="show-chart"
+                class="text-black border-black border-[2px] rounded font-medium text-base px-12 py-2 bg-white/5 backdrop-blur-2xl hover:bg-black hover:text-white transition-colors"
+                href="#"
+            >
+                Gráfica de Lineas</a
+            >
+        </div>
+        <footer class="pb-3 px-3 flex flex-row justify-start">
+            <a href="https://mecatronica.utn.edu.ec/" rel="home" itemprop="url">
+                <img width="204" height="36" src="https://mecatronica.utn.edu.ec/wp-content/uploads/2019/01/cropped-mecatronica.png" class="custom-logo" alt="" itemprop="logo" 
+                srcset="https://mecatronica.utn.edu.ec/wp-content/uploads/2019/01/cropped-mecatronica.png 511w, https://mecatronica.utn.edu.ec/wp-content/uploads/2019/01/cropped-mecatronica-300x58.png 300w, https://mecatronica.utn.edu.ec/wp-content/uploads/2019/01/cropped-mecatronica-360x70.png 360w" 
+                sizes="(max-width: 511px) 100vw, 511px">
+            </a>
+
+            <!-- <div class="gap-x-4 flex mx-auto">
+                <a
+                    class="text-white border-[3px] rounded font-medium text-xs px-12 py-2 border-white bg-white/5 backdrop-blur-3xl hover:bg-white hover:text-black transition-colors"
+                    href="#"
+                >
+                    Actions del proyecto</a
+                >
+                <a
+                    class="text-black border-black border-[3px] rounded font-medium text-xs px-12 py-2 bg-white/5 backdrop-blur-3xl hover:bg-black hover:text-white transition-colors"
+                    href="#"
+                >
+                    Control del proyecto</a
+                >
+            </div> -->
+        </footer>
+    </div>
+
+    <div class="absolute top-0 bottom-0 h-full w-full z-10">
+        <!-- <video
+            class="object-center object-cover h-full"
+            autoplay
+            loop
+            muted
+            src="/assets/Homepage-Model-Y-Desktop-NA.mp4"></video> -->
+           
+    </div>
+</section>
+
+<script is:inline src="/canvas-gauges/gauge.min.js"></script>
+<script>
+    const modal = document.getElementById("widget-modal");
+    const widgetContent = document.getElementById("widgetContent");
+    const gaugeOptions = document.getElementById("gaugeOptions");
+    const lampOptions = document.getElementById("lamp-options");
+    const indicatorOptions = document.getElementById("indicator-options");
+    const showWidgetButton = document.getElementById("show-widget");
+    const gaugeSelectButton = document.getElementById("window_preview_gauge");
+    const lampSelectButton = document.getElementById("window_preview_lamp");
+    const IndicatorSelectButton = document.getElementById("window_preview_numeric");
+    const botonCerrarModal = document.getElementById("cerrarModal");
+
+    showWidgetButton.addEventListener("click", function () {
+        modal.style.display = "block";
+        widgetContent.style.display = "block";
+        gaugeOptions.style.display = "none";
+        lampOptions.style.display = "none";
+    });
+
+    botonCerrarModal.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+    
+    botonCerrarModal.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    gaugeSelectButton.addEventListener("click", function () {
+        gaugeOptions.style.display = "block";
+        lampOptions.style.display = "none";
+        indicatorOptions.style.display = "none";
+        widgetContent.style.display = "none";
+    });
+
+    lampSelectButton.addEventListener("click", function () {
+        lampOptions.style.display = "block";
+        gaugeOptions.style.display = "none"
+        indicatorOptions.style.display = "none";
+        widgetContent.style.display = "none"
+    });
+
+    IndicatorSelectButton.addEventListener("click", function (){
+        lampOptions.style.display = "none";
+        gaugeOptions.style.display = "none";
+        indicatorOptions.style.display = "block";
+        widgetContent.style.display = "none";
+    });
+
+</script>
+
+<style>
+ 
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-contenido {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 40px;
+        border: 1px solid #888;
+        width: 60%;
+        border-radius: 1rem;
+    }
+
+    .cerrar {
+        color: #aaa;
+        float: right;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .cerrar:hover,
+    .cerrar:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
