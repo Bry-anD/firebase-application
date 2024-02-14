@@ -706,6 +706,29 @@ function createChart() {
     observador.observe(tempAire, observerOptions);
 }
 
+
+function getTime() {
+    // Fecha y hora actuales en formato: 2023-08-09T17:22:20.248Z
+    let current_second = new Date();
+    console.log("current_second =", current_second.toISOString());
+
+    // Fecha actual en formato: 2023-08-09
+    // let current_date = current_second.toISOString().split('T')[0];
+    // console.log("current_date =", current_date);
+
+    // // Fecha y hora actuales en formato: 2023-08-09 17:22:20
+    let Start_time = current_second.toISOString().replace('T', ' ').split('.')[0];
+    // console.log("Start_time =", Start_time);
+
+    // // fecha y hora actual en milisegundos desde la medianoche del 1 de enero de 1970 (UTC) 
+    // let utc = Date.now()
+    // // convierte automáticamente a la fecha y hora local
+    // let date = new Date(utc)
+
+    // return date;
+    return Start_time;
+}
+
 let seccionActions = document.getElementById('actions');
 let seccionControl = document.getElementById('control');
 

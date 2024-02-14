@@ -9,6 +9,15 @@ Inside of your Astro project, you'll see the following folders and files:
 /
 ├── public/
 │   └── favicon.svg
+│   └── firebase-messaging-sw.js
+│   └── assets/
+│   │   └── favicon.svg
+│   │   └── lamp.svg
+│   │   └── add_numeric_display.svg
+│   │   └── add_widget_gaugue.svg
+│   │   └── Riego-auto-functions.png
+│   └── canvas-gauges/
+|
 ├── src/
 │   ├── components/
 │   │   └── Card.astro
@@ -26,7 +35,15 @@ Inside of your Astro project, you'll see the following folders and files:
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
-│       └── index.astro
+│   |   └── index.astro
+│   └── javascript/
+│       └── firebase.js
+│       └── auth.js
+│       └── functions.js
+│       └── messaging.js
+│       └── realtime.js
+│       └── index.js
+│       └── tables.js
 └── package.json
 ```
 
