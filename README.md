@@ -18,9 +18,9 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   └── PanelSection.astro
 │   │   └── LandingHeader.astro
 │   │   └── Register.astro
-│   │   └── WidgetContent.astro
-│   │   └── GaugueOptions.astro
-│   │   └── LampOptions.astro
+│   │   └── Widget.astro
+│   │   └── Gaugues.astro
+│   │   └── Lamps.astro
 │   │   └── Indicator.astro
 │   │   └── Logo.astro
 │   ├── layouts/
