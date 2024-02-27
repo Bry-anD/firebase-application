@@ -22,9 +22,9 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	
-	/* 
+	
 	:root {
-		--accent: 136, 58, 234;
+		/* --accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
 		--accent-gradient: linear-gradient(
@@ -32,9 +32,19 @@ const { title } = Astro.props;
 			rgb(var(--accent)),
 			rgb(var(--accent-light)) 30%,
 			white 60%
+		); */
+		--accent: 44, 117, 255; /* Azul metálico principal */
+		--accent-light: 144, 191, 255; /* Azul metálico claro */
+		--accent-dark: 0, 37, 105; /* Azul metálico oscuro */
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+		  white 60%
 		);
 	}
-	html {
+	
+	/* html {
 		font-family: system-ui, sans-serif;
 		background: white;
 		background-size: 224px;

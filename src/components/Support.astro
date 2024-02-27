@@ -1,0 +1,104 @@
+---
+import Card from "./Card.astro";
+interface Props {
+    nameProyect: string;
+}
+
+const { nameProyect } = Astro.props;
+---
+
+<article id="supportModal" class="modal">
+    <div class="modal-contenido text-black">
+        <header class="justify-center mx-auto">
+            <span class="cerrar" id="cerrar-support-modal">&times;</span>
+        </header>         
+       
+        <div class="p-3 bg-white rounded-lg shadow-md text-center">
+            <h2 class="text-xl font-semibold text-gray-700">Bryan Rolando Dávalos Alcívar</h2>
+            <h3 class="text-md font-light text-gray-500">Ingeniero en Mecatrónica</h3>
+            <p class="text-sm text-blue-700 italic opacity-75 mb-3">brdavalosa@gmail.com</p>
+            <ul class=" list-inside text-xs text-center text-gray-600 py-2">
+                <li>Ibarra, Ecuador</li>
+                <li>Santo Domingo, Ecuador</li>
+            </ul>
+        </div>   
+       
+    </div>
+</article>
+<script>
+    
+    const supportModal = document.getElementById("supportModal");
+    const supportButton = document.getElementById("support");
+    const closeModalButton = document.getElementById("cerrar-support-modal");
+
+    supportButton.addEventListener("click", function () {
+        supportModal.style.display = "block";
+    });
+
+    closeModalButton.addEventListener("click", function () {
+        supportModal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target === supportModal) {
+            supportModal.style.display = "none";
+        }
+    });
+
+</script>
+<style>
+   
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-contenido {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: none;
+        width: 40%;
+    }
+
+    .cerrar {
+        color: #333;
+        float: right;
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    .cerrar:hover,
+    .cerrar:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .tarjeta {
+            font-family: Arial, sans-serif;
+            border: 1px solid #ddd;
+            width: 300px;
+            padding: 10px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+        .tarjeta h2, .tarjeta h3 {
+            margin: 0;
+        }
+        .tarjeta h2 {
+            color: #333;
+        }
+        .tarjeta h3 {
+            color: #666;
+            margin-bottom: 10px;
+        }
+   
+</style>

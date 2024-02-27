@@ -8,27 +8,27 @@ import Card from "./Card.astro"
 
 <div class="z-30 relative h-full flex flex-col">
     <header class="pt-40">
-        <h1 class="text-white text-3xl">Bienvenidos a</h1>
-        <h2 class="text-white text-2xl font-medium pb-4">Riego IoT</h2>
+        <h2 class="text-white font-bold text-3xl">Bienvenidos a</h1>
+        <h1 class="text-white pb-4 text-gradient">Riego IoT</h2>
         <h3 class="text-white text-xs font-medium"> Aplicación para la administración de un sistema de riego inteligente</h3>
-            <p class="text-white text-xs">
-                Para una introducción revisa los siguientes recursos en el<a href="https://utneduec-my.sharepoint.com/:f:/g/personal/brdavalosa_utn_edu_ec/EjrcVu8U3e9Kkv823-MWF78BOkghHHn4_vtOji7aB1egAg?e=gO2f8B"><code>enlace</code></a> del projecto.
-            </p>
-    </header>    
+    </header>            
     
-    <!-- <div >
-        <ul class="flex relative" role="list" class="link-card-grid">
-            <Card href="#" title="Documentación"
+    <div id="home-options" class="w-[60%] mx-auto flex justify-center py-6" style="display:none">        
+        <p class="text-white text-xs pb-4">
+            Para una introducción revisa los siguientes recursos en el <a href="https://utneduec-my.sharepoint.com/:f:/g/personal/brdavalosa_utn_edu_ec/EjrcVu8U3e9Kkv823-MWF78BOkghHHn4_vtOji7aB1egAg?e=gO2f8B"><code>enlace</code></a> del projecto.
+        </p>
+        <ul role="list" class="link-card-grid">
+            <Card href="https://utneduec-my.sharepoint.com/:f:/g/personal/brdavalosa_utn_edu_ec/EjrcVu8U3e9Kkv823-MWF78BOkghHHn4_vtOji7aB1egAg?e=QU1c9Y" title="Documentación"
             body="Informe del proyecto de la aplicación de administración de rigo inteligente." />
-            <Card href="#" title="Código"
-            body="Enlace al repositorio en github" />
-            <Card href="#" title="Diagramas de Flujo"
-            body="#" />
+            <Card href="https://github.com/Bry-anD/firebase-application" title="Código"
+            body="Enlace al repositorio de la aplicación en github" />
+            <Card href="https://utneduec-my.sharepoint.com/:f:/g/personal/brdavalosa_utn_edu_ec/EjrcVu8U3e9Kkv823-MWF78BOkghHHn4_vtOji7aB1egAg?e=q8Nqbd" title="Diagramas de Flujo"
+            body="Enlace a los diagrama de flujos del funcionamiento de la aplicación para usuarios autenticados/no autenticados y riego auto" />
             <Card href="#" title="Comentarios"
             body="" />
         </ul>
     </div>
-     -->
+        
     <footer class="flex flex-grow flex-nowrap justify-end flex-col pb-10">
         <div>
             <a
@@ -43,7 +43,7 @@ import Card from "./Card.astro"
 
     <div class="absolute top-0 bottom-0 h-full w-full z-10">
         <video
-            class="object-center object-cover h-full w-full"
+            class="object-center object-cover h-full w-full blur-sm"
             autoplay
             loop
             muted
@@ -114,7 +114,7 @@ import Card from "./Card.astro"
     .link-card-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-        gap: 2rem;
+        gap: 1.25rem;
         padding: 0;
     }
 </style>

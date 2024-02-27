@@ -731,6 +731,7 @@ function getTime() {
 
 let seccionActions = document.getElementById('actions');
 let seccionControl = document.getElementById('control');
+let homeOptions = document.getElementById('home-options');
 
 document.addEventListener("DOMContentLoaded", (event) => {
 
@@ -738,8 +739,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if (user) {
             const uid = user.uid;
             saveMessagingDeviceToken(uid);
+
             seccionActions.style.display = "block";
             seccionControl.style.display = "block";
+            homeOptions.style.display = "block";
             sesionElemets(uid)
 
         } else {

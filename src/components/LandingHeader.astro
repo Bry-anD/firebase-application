@@ -1,6 +1,7 @@
 ---
 import Logo from "./Logo.astro";
 import Register from "./Register.astro";
+import Support from "./Support.astro";
 
 interface Props {
     nameProyect: string;
@@ -29,12 +30,14 @@ const { nameProyect } = Astro.props;
         <ul
             class="flex text-sm [&>li>a]:rounded [&>li>a]:transition-colors [&>li>a]:duration-400 [&>li>a]:font-medium [&>li>a]:text-current [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
         >
-            <li><a href="">Soporte</a></li>
+            <li><a id="support" href="#">Soporte</a></li>
             <!-- <li><a href="">Configuracion</a></li> -->
             <li><a id="account">Cuenta</a></li>
         </ul>
     </nav>
     <Register nameProyect={nameProyect} />
+    <Support nameProyect={nameProyect} />
+
 </header>
 
 <script>
