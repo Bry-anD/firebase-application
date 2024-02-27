@@ -1,9 +1,4 @@
 
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-// import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
-// import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
-// import * as firebaseui from "https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js";
-
 import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 import { getAuth } from 'firebase/auth';

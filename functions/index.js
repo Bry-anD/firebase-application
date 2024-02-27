@@ -7,11 +7,6 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
-// const { onRequest } = require("firebase-functions/v2/https");
-// const logger = require("firebase-functions/logger");
-
-
-
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
 
@@ -20,14 +15,7 @@
 //   response.send("Hello from Firebase!");
 // });
 
-// import * as v2 from "firebase-functions/v2";
-// import * as v1 from "firebase-functions/v1";
-// const functionsV2 = require("firebase-functions/v2");
-
-// const firebase = require("firebase-admin");
-// const functions = firebase.functions();
-
-const { logger } = require("firebase-functions");
+// const { logger } = require("firebase-functions/v2/https");
 const { onCall, onRequest, HttpsError } = require("firebase-functions/v2/https");
 const { onValueUpdated, onValueWritten } = require("firebase-functions/v2/database");
 

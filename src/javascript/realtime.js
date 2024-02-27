@@ -95,7 +95,6 @@ export function realtimeObject(reference = '/', object) {
     });
 
     function updateObject(changedValue) {
-        // console.log('updateGauge', object, changedValue);
         try {
             object.value = changedValue;
         } catch (error) {
@@ -104,22 +103,6 @@ export function realtimeObject(reference = '/', object) {
 
     }
 }
-
-// export function actualize(reference = '/', content) {
-
-//     let Elements_ref = ref(database, reference)
-
-//     update(Elements_ref, content)
-//         .then(() => {
-//             // Data saved successfully!
-//             console.log(`Data saved succesfully in ${Elements_ref}`, content);
-
-//         })
-//         .catch((error) => {
-//             console.error(`The write failed in ${Elements_ref}`, error);
-//             // The write failed...
-//         });
-// }
 
 export function write(reference = '/', content) {
     // const t = trace(performance, "traceRealtimeSetData")

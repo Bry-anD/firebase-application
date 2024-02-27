@@ -216,8 +216,6 @@ indicatorCreateForm.addEventListener('submit', (event) => {
     const unidades = document.getElementById("i-units").value
     const tipoDatos = document.getElementById("i-data-type").value
 
-    // console.log(renderTo, referencia, unidades, tipoDatos);
-
     if (!document.getElementById(renderTo)) {
         const div = document.createElement('div');
         div.id = renderTo
@@ -228,21 +226,6 @@ indicatorCreateForm.addEventListener('submit', (event) => {
         // Agregar el nuevo div al contenedor existente
         container.appendChild(div);
     }
-
-
-    // if (!document.getElementById(renderTo)) {
-    //     const div = document.createElement('div');
-    //     div.id = renderTo
-    //     div.className = "border border-[4px] border-gray-300 w-[150px] h-[50px] pt-2 bg-gray-50 items-center justify-center relative flex flex-col"
-    //     // const span = document.createElement('span');
-    //     div.innerHTML = `<p class="relative flex pl-2" id="${renderTo}value"> </p><p class="relative flex text-xs bg-transparent opacity-60"> ${referencia}(${unidades})</p>`
-    //     // span.className = "flex text-black text-sm bg-transparent"
-    //     // Obtener el contenedor existente por su ID
-    //     const container = document.getElementById('canvas-indicator');
-    //     // Agregar el nuevo div al contenedor existente
-    //     container.appendChild(div);
-    //     // div.appendChild(span); 
-    // }
 
     let data = document.getElementById(referencia);
 
@@ -409,12 +392,11 @@ function sesionElemets(uid) {
                             console.log('Operación no soportada.');
                             return null;
                     }
-                    console.log(conditionMet);
 
                     if (conditionMet) {
                         lamp.style.backgroundColor = color;
                         lamp.style.opacity = 100;
-                        // console.log('Se cumplio la condición lampara');
+                        console.log('Se cumplio la condición lampara');
                     } else {
                         lamp.style.opacity = 50;
                         lamp.style.backgroundColor = '#e5e7eb';
@@ -734,29 +716,6 @@ function createChart() {
         console.error(error);
     });
 
-}
-
-
-function getTime() {
-    // Fecha y hora actuales en formato: 2023-08-09T17:22:20.248Z
-    let current_second = new Date();
-    console.log("current_second =", current_second.toISOString());
-
-    // Fecha actual en formato: 2023-08-09
-    // let current_date = current_second.toISOString().split('T')[0];
-    // console.log("current_date =", current_date);
-
-    // // Fecha y hora actuales en formato: 2023-08-09 17:22:20
-    let Start_time = current_second.toISOString().replace('T', ' ').split('.')[0];
-    // console.log("Start_time =", Start_time);
-
-    // // fecha y hora actual en milisegundos desde la medianoche del 1 de enero de 1970 (UTC) 
-    // let utc = Date.now()
-    // // convierte automáticamente a la fecha y hora local
-    // let date = new Date(utc)
-
-    // return date;
-    return Start_time;
 }
 
 let seccionActions = document.getElementById('actions');
