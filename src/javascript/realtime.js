@@ -120,6 +120,7 @@ export function realtimeObject(reference = '/', object) {
 //             // The write failed...
 //         });
 // }
+
 export function write(reference = '/', content) {
     // const t = trace(performance, "traceRealtimeSetData")
     // t.start()

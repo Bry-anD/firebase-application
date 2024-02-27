@@ -11,6 +11,7 @@ import { getFunctions } from 'firebase/functions';
 import { getMessaging, isSupported } from "firebase/messaging";
 import { getPerformance } from "firebase/performance";
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
 
 
 //Configuración del proyecto de firebase de la aplicación
@@ -28,8 +29,11 @@ const firebaseConfig = {
 // Inicializa Firebase
 export const app = initializeApp(firebaseConfig);
 
-// Inicializa Realtime Database and get a reference to the service
+// Inicializa Realtime Database and y obtiene una referencia al servicio
 export const database = getDatabase(app);
+
+//  Initializa Cloud Firestore and y obtiene una referencia al servicio
+export const firestone = getFirestore(app);
 
 // Inicializa Firebase Auth 
 export const auth = getAuth(app);

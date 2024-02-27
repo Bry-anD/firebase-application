@@ -1,0 +1,59 @@
+{
+    "api_key": "iotriego-17bad-firebase-adminsdk-pcsm5-cd3dd167cb.json",
+    "database_url": "https://ejemplo.firebaseio.com",
+    "urlDB": "https://iotriego-17bad-default-rtdb.firebaseio.com",
+    "proyect": "CultivoDispFinal",
+    "devices": {
+        "humAire": {
+            "pin": 0,
+            "unidades": "",
+            "model": "",
+            "description": "",
+            "conversion": "*1"
+        },
+        "humSuelo": {
+            "pin": 0,
+            "unidades": "",
+            "model": "",
+            "description": "",
+            "conversion": "*1"
+        },
+        "tempAire": {
+            "pin": 0,
+            "unidades": "",
+            "model": "",
+            "description": "",
+            "conversion": "*1"
+        },
+        "irrigation": {
+            "pin": 0,
+            "unidades": "",
+            "model": "",
+            "description": "",
+            "conversion": "*1"
+        }
+    },
+    "data": {
+        "humAire": 0,
+        "humSuelo": 0,
+        "tempAire": 0,
+        "riego": false
+    },
+    "actions": {
+        "monitoring": true,
+        "regar": true,
+        "sqliteRead": false,
+        "sqliteWrite": false
+    },
+    "settings": {
+        "command": "",
+        "dataRate": 4,
+        "humSueloMax": 80,
+        "humSueloMin": 30,
+        "modo": "manual",
+        "sampling": 0.5,
+        "tempAireMax": 30,
+        "tempAireMin": 3,
+        "tiempoRiego": 60
+    }
+}

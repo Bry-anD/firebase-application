@@ -1,7 +1,8 @@
 
 import { onAuthStateChanged } from 'firebase/auth'
 import { trace } from 'firebase/performance'
-import { auth, performance } from './firebase.js';
+import { collection, addDoc } from "firebase/firestore";
+import { auth, performance, firestone } from './firebase.js';
 import { realtimeGet, realtimeVal, realtimeElement, realtimeObject, write } from './realtime.js';
 import { saveMessagingDeviceToken } from './messaging.js';
 import { addTable, addRow } from './tables.js';
@@ -509,6 +510,13 @@ function sesionElemets(uid) {
         console.error(error);
     });
 }
+
+realtimeGet('tu/referencia/aquí').then((valor) => {
+    console.log(valor);
+}).catch((error) => {
+    console.error(error); 0
+});
+
 
 function createChart() {
 

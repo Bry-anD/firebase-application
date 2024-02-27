@@ -20,14 +20,12 @@
 //   response.send("Hello from Firebase!");
 // });
 
-
 // import * as v2 from "firebase-functions/v2";
 // import * as v1 from "firebase-functions/v1";
 // const functionsV2 = require("firebase-functions/v2");
 
 // const firebase = require("firebase-admin");
 // const functions = firebase.functions();
-
 
 const { logger } = require("firebase-functions");
 const { onCall, onRequest, HttpsError } = require("firebase-functions/v2/https");
