@@ -212,26 +212,27 @@ def readTime(tipo):
 
 def main():
 
-    # Obtén el valor de 'actions/sqliteRead'
-    valor = fb.child('actions/sqliteRead').get()
+    # Obtén el valor de 'actions/sqliteRead' obtener la base de datos SQLite
+    sqliteRead = fb.child('actions/sqliteRead').get()
+    if bool(sqliteRead):
+        fb.child('actions/sqliteRead').set(False)
+        url = uploadDB(f'{dataBaseName}', f'./{dataBaseName}')
+        print(url)
+        print("se ha exportado la base de datos SQlite en firebase")
 
+    # Obtén parametros para la consulta en la base de datos SQlite
+    consulta = fb.child('sqlite/EstampaTiempo')
     # Verifica si el valor es un objeto (dict en Python)
-    if isinstance(valor, dict):
+    if isinstance(consulta, dict):
         try:
-            print(valor["inicio"], valor["fin"])
-            inicio = valor["inicio"]
-            fin = valor["fin"]
+            # print(consulta["inicio"], consulta["fin"])
+            inicio = consulta["inicial"]
+            fin = consulta["final"]
             readWithRange(inicio, fin)
             fb.child('actions/sqliteRead').set(False)
 
         except Exception as e:
             print(e, 'error al consultar la base de datos')
-
-    elif bool(valor):
-        fb.child('actions/sqliteRead').set(False)
-        url = uploadDB(f'{dataBaseName}', f'./{dataBaseName}')
-        print(url)
-        print("se ha exportado la base de datos SQlite en firebase")
 
     listener = None
     while bool(fb.child('actions/sqliteWrite').get()):

@@ -256,6 +256,39 @@ indicatorCreateForm.addEventListener('submit', (event) => {
 
 });
 
+const requestDataSQliteFrom = document.getElementById("sqlite-request-form");
+
+requestDataSQliteFrom.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let inicio = document.getElementById("data-init").value;
+    let fin = document.getElementById("data-end").value;
+
+    write(`${nameProyect}/sqlite/EstampaTiempo`, { inicial: inicio, final: fin, });
+
+
+    realtimeGet(`${nameProyect}/sqlite/consulta`).then((valor) => {
+        let data = valor
+
+        const jsonStr = JSON.stringify(data);
+
+        // Crear un blob a partir de la cadena JSON
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+
+        // Crear un enlace de descarga
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement('a');
+
+        link.href = url;
+        link.download = 'data.json';
+        link.click();
+
+
+    }).catch((error) => {
+        console.error(error);
+    });
+});
+
 function gaugeCreate() {
     const modal = document.getElementById("widget-modal");
     modal.style.display = "none";

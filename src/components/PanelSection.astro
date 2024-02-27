@@ -3,6 +3,7 @@ import GaugueOptions from "./Gaugues.astro";
 import WidgetContent from "./Widget.astro";
 import LampOptions from "./Lamps.astro";
 import Indicator from "./Indicator.astro";
+import RequestSQLite from "./RequestSQLite.astro";
 
 interface Props {
     nameProyect: string;
@@ -42,28 +43,40 @@ const { nameProyect } = Astro.props;
 
         <article id="widget-modal" class="modal">
             <div class="modal-contenido">
-                <span class="cerrar" id="cerrarModal">&times;</span>
-                <WidgetContent />
-                <GaugueOptions />
+                <span class="cerrar" id="cerrar-modal">&times;</span>
+                <WidgetContent/>
+                <GaugueOptions/>
                 <LampOptions/>   
                 <Indicator/> 
-                
+            </div>
+        </article>
+        <article id="sqlite-modal" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar" id="cerrar-sqlite-modal">&times;</span>
+                <RequestSQLite/>
             </div>
         </article>
         <div class="gap-x-4 flex justify-center">
             <a
                 id="show-widget"
-                class="text-black border-[2px] rounded font-medium text-sm px-6 py-1 border-blue-800 bg-white/5 backdrop-blur-2xl hover:bg-blue-800 hover:text-white transition-colors"
+                class="text-black border-[2px] rounded font-medium text-base px-8 py-1 border-blue-800 bg-white/5 backdrop-blur-2xl hover:bg-blue-800 hover:text-white transition-colors"
                 href="#"
             >
                 Agregar Widgets</a
             >
             <a
                 id="show-chart"
-                class="text-black border-black border-[2px] rounded font-medium text-sm px-6 py-1 bg-white/5 backdrop-blur-2xl hover:bg-black hover:text-white transition-colors"
+                class="text-black border-black border-[2px] rounded font-medium text-base px-12 py-1 bg-white/5 backdrop-blur-2xl hover:bg-black hover:text-white transition-colors"
                 href="#"
             >
                 Gráfica de Lineas</a
+            >
+            <a
+                id="show-request-sqlite"
+                class="text-black border-black border-[2px] rounded font-medium text-base px-12 py-1 bg-white/5 backdrop-blur-2xl hover:bg-black hover:text-white transition-colors"
+                href="#"
+            >
+                Consultar</a
             >
         </div>
         <footer class="pb-3 px-3 flex flex-row justify-end">
@@ -97,7 +110,7 @@ const { nameProyect } = Astro.props;
     const gaugeSelectButton = document.getElementById("window_preview_gauge");
     const lampSelectButton = document.getElementById("window_preview_lamp");
     const IndicatorSelectButton = document.getElementById("window_preview_numeric");
-    const botonCerrarModal = document.getElementById("cerrarModal");
+    const botonCerrarModal = document.getElementById("cerrar-modal");
 
     showWidgetButton.addEventListener("click", function () {
         modal.style.display = "block";
@@ -110,14 +123,14 @@ const { nameProyect } = Astro.props;
         modal.style.display = "none";
     });
     
-    botonCerrarModal.addEventListener("click", function () {
-        modal.style.display = "none";
-    });
-
     window.addEventListener("click", function (event) {
         if (event.target === modal) {
             modal.style.display = "none";
         }
+        if (event.target === sqliteModal) {
+            sqliteModal.style.display = "none";
+        }
+
     });
 
     gaugeSelectButton.addEventListener("click", function () {
@@ -139,6 +152,21 @@ const { nameProyect } = Astro.props;
         gaugeOptions.style.display = "none";
         indicatorOptions.style.display = "block";
         widgetContent.style.display = "none";
+    });
+
+    const sqliteModal = document.getElementById("sqlite-modal");
+    const showSQLiteModal = document.getElementById("show-request-sqlite");
+    const cerrarSQLiteModal = document.getElementById("cerrar-sqlite-modal");
+    const requestSQLite = document.getElementById("request-sqlite");
+
+    showSQLiteModal.addEventListener("click",function(){
+        sqliteModal.style.display = "block";
+        requestSQLite.style.display = "block";
+    });
+
+
+    cerrarSQLiteModal.addEventListener("click", function () {
+        sqliteModal.style.display = "none";
     });
 
 </script>
