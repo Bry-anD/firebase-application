@@ -32,7 +32,7 @@ export async function saveMessagingDeviceToken(uid) {
         const fcmToken = await getToken(msg, { vapidKey: VAPID_KEY });
 
         if (fcmToken) {
-            console.log('Got FCM device token:', fcmToken);
+            // console.log('Got FCM device token:', fcmToken);
 
             // Save device token to realtime Database
             write(`CultivoDispFinal/users/${uid}/fcmToken`, fcmToken);
