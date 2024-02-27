@@ -511,15 +511,12 @@ function sesionElemets(uid) {
     });
 }
 
-realtimeGet('tu/referencia/aquí').then((valor) => {
-    console.log(valor);
-}).catch((error) => {
-    console.error(error); 0
-});
+
 
 
 function createChart() {
 
+    chartCreateButton.style.display = 'none';
     var humedadSuelo = [];  // este es tu array de datos
     var humedadAire = [];  // este es tu array de datos
     var temperatura = [];  // este es tu array de datos
@@ -660,14 +657,34 @@ function createChart() {
     var chart2 = new ApexCharts(document.querySelector("#canvas-chart-1"), options2);
     chart2.render();
 
+    function updateChartSeries(time) {
+        xaxisData.categories.push(time);
+        // Actualiza el gráfico con los nuevos datos
+        chart.updateSeries([
+            {
+                name: "HumSuelo",
+                data: humedadSuelo
+            },
+            {
+                name: "HumAire",
+                data: humedadAire
+            }
+        ])
+        chart.updateOptions({ xaxis: xaxisData });
+        // Actualiza el gráfico con los nuevos datos
+        chart2.updateSeries([
+            {
+                name: "TempAire",
+                data: temperatura
+            }
+        ])
+        chart2.updateOptions({ xaxis: xaxisData });
+    }
 
     var humSuelo = document.getElementById('humSuelo');
     var humAire = document.getElementById('humAire');
     var tempAire = document.getElementById('tempAire');
 
-    humedadSuelo.push(humSuelo.innerText);
-    humedadAire.push(humAire.innerText);
-    temperatura.push(tempAire.innerText);
 
     const observerOptions = {
         childList: true, subtree: true
@@ -683,28 +700,7 @@ function createChart() {
             // GTM-5 en milisegundos
             let utc = Date.now()
             let gtm5 = utc - (5 * 60 * 60 * 1000)
-            xaxisData.categories.push(gtm5);
-
-            // Actualiza el gráfico con los nuevos datos
-            chart.updateSeries([
-                {
-                    name: "HumSuelo",
-                    data: humedadSuelo
-                },
-                {
-                    name: "HumAire",
-                    data: humedadAire
-                }
-            ])
-            chart.updateOptions({ xaxis: xaxisData });
-            // Actualiza el gráfico con los nuevos datos
-            chart2.updateSeries([
-                {
-                    name: "TempAire",
-                    data: temperatura
-                }
-            ])
-            chart2.updateOptions({ xaxis: xaxisData });
+            updateChartSeries(gtm5)
         });
     });
 
@@ -712,6 +708,32 @@ function createChart() {
     observador.observe(humSuelo, observerOptions);
     observador.observe(humAire, observerOptions);
     observador.observe(tempAire, observerOptions);
+
+    realtimeGet(`${nameProyect}/sqlite/consulta`).then((valor) => {
+        const elements = Object.keys(valor);
+        let dataLarge = elements.length
+        if (dataLarge > 20) {
+            dataLarge = 20
+        }
+
+        for (var i = 0; i < dataLarge; i++) {
+            let element = elements[i];
+            humedadSuelo.push(valor[element]["humedad_suelo"]);
+            humedadAire.push(valor[element]["humedad_aire"]);
+            temperatura.push(valor[element]["temperatura"]);
+            let time = Math.round(valor[element]["tiempo"] * 1000);
+
+            updateChartSeries(time)
+        }
+
+        humedadSuelo.push(humSuelo.innerText);
+        humedadAire.push(humAire.innerText);
+        temperatura.push(tempAire.innerText);
+
+    }).catch((error) => {
+        console.error(error);
+    });
+
 }
 
 
@@ -748,9 +770,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
             const uid = user.uid;
             saveMessagingDeviceToken(uid);
 
+            homeOptions.style.display = "block";
             seccionActions.style.display = "block";
             seccionControl.style.display = "block";
-            homeOptions.style.display = "block";
             sesionElemets(uid)
 
         } else {
