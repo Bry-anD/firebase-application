@@ -101,6 +101,12 @@ realtimeGet(`${nameProyect}/settings`).then((valor) => {
         let refElement = document.getElementById(Element)
         let value = refElement.innerText
         refElement.innerHTML = `<input id="c-${Element}" type="text" class"w-full" placeholder="${value}"> </input>`
+        realtimeVal(`${nameProyect}/settings/${Element}`, renameInput);
+
+        function renameInput(newValue) {
+            let inputElement = document.getElementById(`c-${Element}`)
+            inputElement.value = newValue
+        }
 
         let inputElement = document.getElementById(`c-${Element}`);
         inputElement.addEventListener('change', function (e) {
